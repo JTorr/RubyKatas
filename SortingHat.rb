@@ -1,5 +1,5 @@
 #Program for practicing Enumerable methods
-#Methods used: chunk, partition
+#Methods used: chunk, partition, collect
 HOGWARTS = [
   {:name => "Harry Potter", :house => "Gryffindor"},
   {:name => "Ron Weasley", :house => "Gryffindor"},
@@ -30,8 +30,16 @@ class SortingHat
     puts "Gryffindors: #{gryffs.join(', ')}"
     puts "Non-Gryffindors: #{non_gryffs.join(', ')}"
   end
+
+  def self.group_students(school, group_size)
+    num = group_size.to_i
+    students = school.map { |school| school[:name]}
+    puts (1..num).collect { "Student : #{students.shift}" }
+  end
 end
 
 SortingHat.chunk_by_house(HOGWARTS)
 puts "=" * 50
 SortingHat.chunk_by_gryffindor(HOGWARTS)
+puts "=" * 50
+SortingHat.group_students(HOGWARTS, 4)
