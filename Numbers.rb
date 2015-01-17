@@ -15,10 +15,14 @@ class NumberTransformer
   def self.count_divisible_by_3(array)
     array.count { |x| x % 3 == 0 }
   end
+
+  def self.sum_cycle(array)
+    array.cycle(3) { |x| puts x += x }
+  end
 end
 
 puts NumberTransformer.divisible_by_3((1..12).to_a) 
 puts NumberTransformer.multiply_by_ten((1..9).to_a)
 puts NumberTransformer.count_divisible_by_3((1..12).to_a)
 puts NumberTransformer.divisible_by_3((1..12).to_a) == NumberTransformer.count_divisible_by_3((1..12).to_a)
-
+NumberTransformer.sum_cycle((1..12).to_a)
