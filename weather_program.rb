@@ -2,7 +2,7 @@ require './weather'
 
 c = 10
 
-f = Weather.ftoc(32)
+f = Weather.ftoc(Weather::FREEZING)
 
 def compare(f, c)
   if f > c
